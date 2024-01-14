@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://buyhnxcjvumc3"]
+
+[ext_resource type="Script" path="res://Screens/MainMenu.gd" id="1_wmh3p"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wmh3p")
+
+[node name="Host" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 49.0
+offset_right = 135.0
+offset_bottom = 94.0
+text = "Host"
+
+[node name="Join" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 113.0
+offset_right = 135.0
+offset_bottom = 158.0
+text = "Join
+"
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 475.0
+offset_right = 142.0
+offset_bottom = 520.0
+text = "Settings
+"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 547.0
+offset_right = 142.0
+offset_bottom = 592.0
+text = "Exit"
+
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

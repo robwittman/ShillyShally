@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6swtvh56mdyc"]
+
+[ext_resource type="PackedScene" uid="uid://buyhnxcjvumc3" path="res://Screens/MainMenu.tscn" id="1_fgtv6"]
+
+[node name="Control" type="Node3D"]
+
+[node name="MainMenu" parent="." instance=ExtResource("1_fgtv6")]
+visible = false
