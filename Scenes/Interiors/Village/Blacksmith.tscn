@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gcvbbhljnw7j"]
+[gd_scene load_steps=8 format=3 uid="uid://gcvbbhljnw7j"]
 
 [ext_resource type="Texture2D" uid="uid://cvdspuvagvvak" path="res://assets/tilesheets/sRA_Interior.png" id="1_71rhy"]
+[ext_resource type="PackedScene" uid="uid://b0egi3wkry8ku" path="res://Scenes/Sprites/NPC.tscn" id="2_0tir6"]
+[ext_resource type="Texture2D" uid="uid://rmym662n66vo" path="res://assets/village/RA_Ground_Tiles.png" id="2_ypx6s"]
+[ext_resource type="Texture2D" uid="uid://bdxojqfcy2qyd" path="res://assets/heroes/Hero_13.png" id="3_vpbq5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwdub"]
 texture = ExtResource("1_71rhy")
@@ -4219,12 +4222,23 @@ texture_region_size = Vector2i(32, 32)
 62:63/0 = 0
 63:63/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klqqd"]
+texture = ExtResource("2_ypx6s")
+texture_region_size = Vector2i(32, 32)
+18:13/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_cfs4s"]
 sources/0 = SubResource("TileSetAtlasSource_lwdub")
+sources/1 = SubResource("TileSetAtlasSource_klqqd")
 
 [node name="Blacksmith" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_cfs4s")
-rendering_quadrant_size = 32
+cell_quadrant_size = 32
 format = 2
+layer_0/tile_data = PackedInt32Array(0, 1179649, 13, 65536, 1179649, 13, 131072, 1179649, 13, 196608, 1179649, 13, 262144, 1179649, 13, 327680, 1179649, 13, 393216, 1179649, 13, 1, 1179649, 13, 65537, 1179649, 13, 131073, 1179649, 13, 196609, 1179649, 13, 262145, 1179649, 13, 327681, 1179649, 13, 393217, 1179649, 13, 2, 1179649, 13, 65538, 1179649, 13, 131074, 1179649, 13, 196610, 1179649, 13, 262146, 1179649, 13, 327682, 1179649, 13, 393218, 1179649, 13, 3, 1179649, 13, 65539, 1179649, 13, 131075, 1179649, 13, 196611, 1179649, 13, 262147, 1179649, 13, 327683, 1179649, 13, 393219, 1179649, 13, 4, 1179649, 13, 65540, 1179649, 13, 131076, 1179649, 13, 196612, 1179649, 13, 262148, 1179649, 13, 327684, 1179649, 13, 393220, 1179649, 13, 5, 1179649, 13, 65541, 1179649, 13, 131077, 1179649, 13, 196613, 1179649, 13, 262149, 1179649, 13, 327685, 1179649, 13, 393221, 1179649, 13, 6, 1179649, 13, 65542, 1179649, 13, 131078, 1179649, 13, 196614, 1179649, 13, 262150, 1179649, 13, 327686, 1179649, 13, 393222, 1179649, 13, 7, 1179649, 13, 65543, 1179649, 13, 131079, 1179649, 13, 196615, 1179649, 13, 262151, 1179649, 13, 327687, 1179649, 13, 393223, 1179649, 13, 8, 1179649, 13, 65544, 1179649, 13, 131080, 1179649, 13, 196616, 1179649, 13, 262152, 1179649, 13, 327688, 1179649, 13, 393224, 1179649, 13, 9, 1179649, 13, 65545, 1179649, 13, 131081, 1179649, 13, 196617, 1179649, 13, 262153, 1179649, 13, 327689, 1179649, 13, 393225, 1179649, 13)
+
+[node name="NPC" parent="." instance=ExtResource("2_0tir6")]
+position = Vector2(18, 21)
+sprite = ExtResource("3_vpbq5")
