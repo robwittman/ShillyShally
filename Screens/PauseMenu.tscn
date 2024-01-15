@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://b47tvjkgtepcx"]
+
+[ext_resource type="Texture2D" uid="uid://dbv0jwqmqfuc8" path="res://assets/interface/User Interface 03/Menu Buttons/Menu Buttons 12.png" id="1_pgbge"]
+[ext_resource type="Texture2D" uid="uid://c1n4eyjfgboq4" path="res://assets/interface/User Interface 03/Menu Buttons/Menu Buttons 11.png" id="2_tr28q"]
+[ext_resource type="Texture2D" uid="uid://dm3tdusds17yx" path="res://assets/interface/User Interface 03/Menu Buttons/Menu Buttons 17.png" id="3_kijtc"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 378.0
+offset_right = 770.0
+offset_bottom = 418.0
+scale = Vector2(1.80001, 1.68)
+texture_normal = ExtResource("1_pgbge")
+
+[node name="Settings" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.8, 1.68)
+texture_normal = ExtResource("2_tr28q")
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 469.0
+offset_right = 770.0
+offset_bottom = 509.0
+scale = Vector2(1.8, 1.72)
+texture_normal = ExtResource("3_kijtc")
