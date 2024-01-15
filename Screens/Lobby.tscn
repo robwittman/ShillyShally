@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://3sfo3eqm4v17"]
+
+[node name="Lobby" type="Node2D"]
+
+[node name="Difficulty" type="Label" parent="."]
+offset_left = 42.0
+offset_top = 604.0
+offset_right = 112.0
+offset_bottom = 630.0
+text = "Difficulty"
+
+[node name="PlayerList" type="ItemList" parent="."]
+offset_left = 585.0
+offset_top = 85.0
+offset_right = 625.0
+offset_bottom = 125.0

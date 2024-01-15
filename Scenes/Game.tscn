@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://0j2hs2g5551s"]
+
+[ext_resource type="Script" path="res://Scenes/Game.gd" id="1_8n7gp"]
+[ext_resource type="PackedScene" uid="uid://dajn03tiuvxxf" path="res://Scenes/Village.tscn" id="2_xrilu"]
+[ext_resource type="PackedScene" uid="uid://dged834a36iuq" path="res://Scenes/Sprites/Character.tscn" id="3_w11fi"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_8n7gp")
+
+[node name="CurrentScene" type="Node" parent="."]
+
+[node name="Village" parent="CurrentScene" instance=ExtResource("2_xrilu")]
+
+[node name="Character" parent="CurrentScene" instance=ExtResource("3_w11fi")]
+position = Vector2(71, 93)

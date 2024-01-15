@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ogoxrlyw2cl"]
+
+[ext_resource type="Script" path="res://Screens/Settings.gd" id="1_kbwcv"]
+[ext_resource type="PackedScene" uid="uid://dged834a36iuq" path="res://Scenes/Sprites/Character.tscn" id="2_evkg7"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kbwcv")
+
+[node name="Character" parent="." instance=ExtResource("2_evkg7")]
+disable_mode = 1
+
+[node name="Save" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cancel" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Next" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Previous" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Random" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Random" to="." method="_on_random_pressed"]
