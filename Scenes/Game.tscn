@@ -12,4 +12,4 @@ script = ExtResource("1_8n7gp")
 [node name="Village" parent="CurrentScene" instance=ExtResource("2_xrilu")]
 
 [node name="Character" parent="CurrentScene" instance=ExtResource("3_w11fi")]
-position = Vector2(71, 93)
+position = Vector2(984, 1071)
