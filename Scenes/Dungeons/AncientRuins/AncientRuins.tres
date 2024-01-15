@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cdr6xs2bsa6h0"]
+
+[ext_resource type="Texture2D" uid="uid://b1w0d6mssposd" path="res://Scenes/Dungeons/AncientRuins/tiles/RA_Ancient.png" id="1_aedqs"]
+[ext_resource type="Texture2D" uid="uid://byf1kqowlyoel" path="res://Scenes/Dungeons/AncientRuins/tiles/RA_Ground_Tiles.png" id="4_u4oh5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmb3k"]
+texture = ExtResource("1_aedqs")
+texture_region_size = Vector2i(48, 48)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7o43b"]
+texture = ExtResource("4_u4oh5")
+texture_region_size = Vector2i(48, 48)
+10:5/0 = 0
+14:5/0 = 0
+18:5/0 = 0
+22:5/0 = 0
+
+[resource]
+tile_size = Vector2i(48, 48)
+sources/6 = SubResource("TileSetAtlasSource_jmb3k")
+sources/7 = SubResource("TileSetAtlasSource_7o43b")
