@@ -21,23 +21,6 @@ tracks/0/keys = {
 "values": [Vector2i(1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_i6ed5"]
-resource_name = "blink"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_jo7y4"]
 resource_name = "bow_attack"
 length = 0.6
@@ -153,7 +136,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_ppr1a"]
 resource_name = "run"
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -215,15 +197,32 @@ tracks/0/keys = {
 "values": [Vector2i(0, 11), Vector2i(1, 11), Vector2i(2, 11), Vector2i(3, 11)]
 }
 
+[sub_resource type="Animation" id="Animation_i6ed5"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_asdcq"]
 _data = {
 "RESET": SubResource("Animation_ffab4"),
-"blink": SubResource("Animation_i6ed5"),
 "bow_attack": SubResource("Animation_jo7y4"),
 "damage": SubResource("Animation_0ppld"),
 "death": SubResource("Animation_omgde"),
 "fly": SubResource("Animation_6xrr4"),
 "fly_blink": SubResource("Animation_lla8b"),
+"idle": SubResource("Animation_i6ed5"),
 "magic_attack": SubResource("Animation_jsvau"),
 "overhand": SubResource("Animation_0krsp"),
 "run": SubResource("Animation_ppr1a"),
@@ -233,6 +232,7 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_u7wug")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -247,10 +247,10 @@ vframes = 12
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_asdcq")
 }
-autoplay = "blink"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

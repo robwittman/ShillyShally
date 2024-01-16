@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dm3tdusds17yx" path="res://assets/interface/User Interface 03/Menu Buttons/Menu Buttons 17.png" id="3_kijtc"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

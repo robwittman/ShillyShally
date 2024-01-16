@@ -41,6 +41,6 @@ func place_room(scene: Node, room: Node, position: Vector2):
 	room.position = position
 	scene.add_child(room)
 	
-func place_character(room: Node, character: CharacterBody2D)
+func place_character(room: Node, character: CharacterBody2D):
 	var spawn = room.get_node("")
 	character.position

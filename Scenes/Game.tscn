@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://0j2hs2g5551s"]
+[gd_scene load_steps=6 format=3 uid="uid://0j2hs2g5551s"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_8n7gp"]
 [ext_resource type="PackedScene" uid="uid://dajn03tiuvxxf" path="res://Scenes/Village.tscn" id="2_xrilu"]
 [ext_resource type="PackedScene" uid="uid://dged834a36iuq" path="res://Scenes/Sprites/Character.tscn" id="3_w11fi"]
+[ext_resource type="Script" path="res://Scenes/SubViewport.gd" id="4_s4vt6"]
+[ext_resource type="PackedScene" uid="uid://b47tvjkgtepcx" path="res://Screens/PauseMenu.tscn" id="5_yiw4q"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_8n7gp")
@@ -11,5 +13,32 @@ script = ExtResource("1_8n7gp")
 
 [node name="Village" parent="CurrentScene" instance=ExtResource("2_xrilu")]
 
-[node name="Character" parent="CurrentScene" instance=ExtResource("3_w11fi")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Character" parent="CanvasLayer" instance=ExtResource("3_w11fi")]
 position = Vector2(984, 1071)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(40, 40)
+render_target_update_mode = 0
+script = ExtResource("4_s4vt6")
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+visible = false
+zoom = Vector2(0.1, 0.1)
+
+[node name="Village" parent="CanvasLayer/SubViewportContainer/SubViewport" instance=ExtResource("2_xrilu")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_yiw4q")]
