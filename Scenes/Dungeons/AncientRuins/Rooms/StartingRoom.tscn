@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://t20505q654lf"]
+[gd_scene load_steps=4 format=3 uid="uid://t20505q654lf"]
 
 [ext_resource type="TileSet" uid="uid://cdr6xs2bsa6h0" path="res://Scenes/Dungeons/AncientRuins/AncientRuins.tres" id="1_c5cgi"]
 [ext_resource type="Script" path="res://Scenes/Dungeons/AncientRuins/Rooms/StartingRoom.gd" id="2_c3g2v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dli0k"]
 
 [node name="Tilemap" type="TileMap"]
 tile_set = ExtResource("1_c5cgi")
@@ -9,3 +11,10 @@ rendering_quadrant_size = 48
 format = 2
 layer_0/tile_data = PackedInt32Array(65540, 2293766, 26, 131076, 2293766, 26, 196612, 2293766, 26, 65541, 2359302, 26, 65542, 2424838, 26, 131077, 2359302, 26, 131078, 2424838, 26, 196613, 2359302, 26, 196614, 2424838, 26, 458757, 2359302, 28, 458756, 2359302, 28, 458758, 2359302, 28, 458759, 2490374, 28, 458755, 2228230, 28, 393219, 2228230, 27, 393223, 2490374, 27, 393220, 2359302, 27, 393221, 2359302, 27, 393222, 2359302, 27, 327683, 2228230, 26, 327687, 2490374, 26, 262147, 2228230, 25, 262151, 2490374, 25, 262150, 2555910, 25, 262148, 2162694, 25, 262149, 2359302, 26, 327685, 2359302, 26, 327684, 2359302, 26, 327686, 2359302, 26, 65544, 3014662, 2, 65538, 3014662, 2, 5, 2686982, 23)
 script = ExtResource("2_c3g2v")
+
+[node name="Spawn" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn"]
+position = Vector2(259, 259)
+scale = Vector2(5.60867, 5.36734)
+shape = SubResource("CircleShape2D_dli0k")

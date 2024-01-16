@@ -7,13 +7,13 @@ var rooms = [
 ]
 
 var starting_room = load("res://Scenes/Dungeons/AncientRuins/Rooms/StartingRoom.tscn")
-
+var map_size = Vector2(2000, 2000)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Running generator function")
 	$/root/Generator.generate(
 		self,
-		Vector2(600, 600),
+		map_size,
 		starting_room,
 		rooms,
 		[],

@@ -8,6 +8,7 @@ var treasure_spawn_chance := 0.00
 
 func generate(
 	scene: TileMap,
+	character: CharacterBody2D,
 	map_size: Vector2,
 	starting_room_resource: Resource,
 	base_rooms: Array,
@@ -39,3 +40,7 @@ func generate(
 func place_room(scene: Node, room: Node, position: Vector2):
 	room.position = position
 	scene.add_child(room)
+	
+func place_character(room: Node, character: CharacterBody2D)
+	var spawn = room.get_node("")
+	character.position
