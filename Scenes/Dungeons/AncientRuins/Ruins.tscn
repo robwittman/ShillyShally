@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvywpbdx2u7bl"]
+[gd_scene load_steps=13 format=3 uid="uid://cvywpbdx2u7bl"]
 
 [ext_resource type="Texture2D" uid="uid://b1w0d6mssposd" path="res://Scenes/Dungeons/AncientRuins/tiles/RA_Ancient.png" id="1_dwrx5"]
 [ext_resource type="Script" path="res://Scenes/Dungeons/AncientRuins/Ruins.gd" id="2_c5dvd"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://byf1kqowlyoel" path="res://Scenes/Dungeons/AncientRuins/tiles/RA_Ground_Tiles.png" id="4_q83ca"]
 [ext_resource type="PackedScene" uid="uid://t20505q654lf" path="res://Scenes/Dungeons/AncientRuins/Rooms/StartingRoom.tscn" id="6_uwneg"]
 [ext_resource type="PackedScene" uid="uid://conttcugnjg6s" path="res://Scenes/Dungeons/AncientRuins/Rooms/Room1.tscn" id="7_ng7ac"]
-[ext_resource type="PackedScene" uid="uid://dged834a36iuq" path="res://Scenes/Sprites/Character.tscn" id="8_uq8f6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_geqhk"]
 texture = ExtResource("1_dwrx5")
@@ -33,15 +32,13 @@ sources/3 = SubResource("TileSetAtlasSource_iq0yo")
 
 [node name="Ruins" type="TileMap"]
 tile_set = SubResource("TileSet_a2nt1")
-cell_quadrant_size = 32
+rendering_quadrant_size = 32
 format = 2
 script = ExtResource("2_c5dvd")
 
 [node name="Tilemap" parent="." instance=ExtResource("6_uwneg")]
 position = Vector2(-1, -5)
+rendering_quadrant_size = 48
 
 [node name="Room1" parent="." instance=ExtResource("7_ng7ac")]
 position = Vector2(1137, 231)
-
-[node name="Character" parent="." instance=ExtResource("8_uq8f6")]
-position = Vector2(40, 35)

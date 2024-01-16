@@ -247,10 +247,10 @@ vframes = 12
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "blink"
 libraries = {
 "": SubResource("AnimationLibrary_asdcq")
 }
+autoplay = "blink"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
