@@ -14,6 +14,9 @@ var room_padding := 3
 var max_rooms := 10
 var current_rooms := 0
 
+var placed_rooms = []
+var placed_positions = []
+
 func generate(
 	scene: TileMap,
 	# character: CharacterBody2D,
@@ -48,11 +51,21 @@ func generate(
 	# Fill in the remaining solid regions with mazes.
 	# Connect each of the mazes and rooms to their neighbors, with a chance to add some extra connections.
 	# Remove all of the dead ends.
+	print(placed_rooms)
+	print(placed_positions)
 	print("Dungeon generated!")
 	
 func place_room(scene: Node, room: Node, position: Vector2):
+	print("Placing room at %s" % position)
 	room.position = position
 	scene.add_child(room)
+	
+	# Store the vector coords so we can check collisions
+	var size = room.get_used_rect().size
+	placed_rooms.append([position, Vector2(position[0] + size[0], position[1] + size[1])])
+	#print("Position: %s" % position)
+	#print(placed_rooms)
+	placed_positions.append(position)
 	
 func place_character(room: Node, character: CharacterBody2D):
 	var spawn = room.get_node("")
@@ -79,14 +92,12 @@ func place_base_rooms(scene: TileMap, map_size: Vector2, base_rooms: Array):
 				
 func place_base_room_at_cell(scene: TileMap, x: int, y: int, base_rooms: Array) -> void:
 	var maxRoomTries = 5
-	var tile_data = scene.get_cell_tile_data(0, Vector2(x, y))
-	if tile_data:
-		return
 
 	for try in maxRoomTries:
 		# Grab a random room
 		var room = base_rooms[randi_range(0, base_rooms.size() - 1)].instantiate()
 		var size = room.get_used_rect().size
+		print("Size: %s" % size)
 		if not is_range_empty(
 			scene,
 			Vector2i(x, x+size[0]),
@@ -98,19 +109,27 @@ func place_base_room_at_cell(scene: TileMap, x: int, y: int, base_rooms: Array) 
 			continue
 			
 		# Hooray! The room will fit in our tilemap!
-		room.position = Vector2(x, y)
-		scene.add_child(room)
+		place_room(scene, room, Vector2(x, y))
 		current_rooms += 1
-		fill_ground_tiles(scene, Vector2i(x, y), Vector2i(x + size[0], y + size[1]))
+		# fill_ground_tiles(scene, Vector2i(x, y), Vector2i(x + size[0], y + size[1]))
 		return
 
 func is_range_empty(scene: TileMap, start: Vector2i, end: Vector2i) -> bool:
 	for x in range(start[0], end[0]):
 		for y in range(start[1], end[1]):
-			var tile_data = scene.get_cell_tile_data(0, Vector2(x, y))
-			if tile_data:
-				return false
+			for placement in placed_rooms:
+				if vector_in_between(Vector2i(x, y), placement[0], placement[1]):
+					return false
 	return true
+
+func vector_in_between(cell: Vector2i, start: Vector2, end: Vector2):
+	#print("Cell: %s" % cell)
+	#print("Start: %s" % start)
+	#print("End: %s" % end)
+	if cell[0] >= start[0] and cell[0] <= end[0] and cell[1] >= start[1] and cell[1] <= end[1]:
+		print("Vector found as in between")
+		return true 
+	return false
 	
 # HACK: Since we're adding "scenes" and not tilemaps, we're going to go ahead 
 # and just dump blank ground tiles on the base whenever we place a room. This way 
